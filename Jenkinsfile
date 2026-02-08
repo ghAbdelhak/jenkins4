@@ -30,6 +30,8 @@ stages {
         }
     }
 
+
+}
     post {
         success {
             echo '✅ Pipeline completed successfully!'
@@ -38,5 +40,4 @@ stages {
             echo '❌ Pipeline failed!'
         }
     }
-}
 }
