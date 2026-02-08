@@ -71,10 +71,16 @@ stages {
 
         }
         success {
-            echo '✅ Pipeline completed successfully!'
+            emailext (subject:"build success",
+                      body:"build success",
+                      to:"ghezaliabdelhak99@gmail.com"
+            )
         }
         failure {
-            echo '❌ Pipeline failed!'
+           emailext (subject:"build failed",
+                     body:"build failed",
+                     to:"ghezaliabdelhak99@gmail.com"
+           )
         }
     }
 }
