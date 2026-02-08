@@ -1,15 +1,27 @@
 pipeline {
 agent any
 stages {
-    stage('Build') {
+    stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+    stage('Init') {
         steps {
-            bat './mvnw clean install'
-            archiveArtifacts artifacts: 'target/*.jar'
+            bat './mvnw clean'
         }
     }
+
     stage('Test') {
         steps {
+            bat './mvnw test'
             junit '**/target/surefire-reports/*.xml'
+        }
+    }
+    stage('Build') {
+        steps {
+            bat './mvnw install'
+            archiveArtifacts artifacts: 'target/*.jar'
         }
     }
     stage('Deploy') {
@@ -17,4 +29,14 @@ stages {
             echo 'Deploying...'
         }
     }
-}}
+
+    post {
+        success {
+            echo '✅ Pipeline completed successfully!'
+        }
+        failure {
+            echo '❌ Pipeline failed!'
+        }
+    }
+}
+}
