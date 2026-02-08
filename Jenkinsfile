@@ -26,6 +26,7 @@ stages {
     }
 stage('Documentation') {
     steps {
+        bat 'rmdir /S /Q site'
         bat './mvnw javadoc:javadoc'
         bat "xcopy /E /I /Y target\\site site"
 
