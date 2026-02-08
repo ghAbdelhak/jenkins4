@@ -32,6 +32,7 @@ stage('Documentation') {
         cp -r target/site/* doc/
         zip -r doc.zip doc
         '''
+
         archiveArtifacts artifacts: 'doc.zip',
     }
 }
