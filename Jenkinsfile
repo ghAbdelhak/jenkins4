@@ -9,7 +9,7 @@ stages {
     }
     stage('Test') {
         steps {
-            echo 'Testing...'
+            junit '**/target/surefire-reports/*.xml'
         }
     }
     stage('Deploy') {
