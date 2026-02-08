@@ -24,14 +24,15 @@ stages {
             archiveArtifacts artifacts: 'target/*.jar'
         }
     }
-        stage('Documentation') {
-            steps {
-                bat './mvnw javadoc:javadoc'
-                archiveArtifacts artifacts: 'target/site/**'
+stage('Documentation') {
+    steps {
+        bat './mvnw javadoc:javadoc'
+        bat "xcopy /E /I /Y target\\site site"
 
+        archiveArtifacts artifacts: 'target/site/**', fingerprint: true
+    }
+}
 
-            }
-        }
     stage('Deploy') {
         steps {
             echo 'Deploying...'
