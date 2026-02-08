@@ -13,12 +13,12 @@ stages {
         }
     }
 
-//    stage('Test') {
-//        steps {
-//            bat './mvnw test'
-//            junit '**/target/surefire-reports/*.xml'
-//        }
-//    }
+    stage('Test') {
+        steps {
+            bat './mvnw test'
+            junit '**/target/surefire-reports/*.xml'
+        }
+    }
     stage('Build') {
         steps {
             bat './mvnw install'

@@ -57,6 +57,7 @@ public class PackServiceIntegrationTest {
         product1 = productService.getProduct(1);
         product2 = productService.getProduct(2);
         Assertions.assertEquals(product1.getReservedPacks(),20);
+
         Assertions.assertEquals(product2.getReservedPacks(),5);
 
     }
