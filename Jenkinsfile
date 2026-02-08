@@ -1,5 +1,6 @@
 pipeline {
 agent any
+// password vgdo tbxb yiyf smar
 stages {
     stage('Checkout') {
             steps {
