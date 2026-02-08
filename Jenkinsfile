@@ -26,11 +26,13 @@ stages {
     }
 stage('Documentation') {
     steps {
-        bat 'rmdir /S /Q site'
         bat './mvnw javadoc:javadoc'
-        bat "xcopy /E /I /Y target\\site site"
-
-        archiveArtifacts artifacts: 'target/site/**', fingerprint: true
+        bat '''
+        mkdir -p doc
+        cp -r target/site/* doc/
+        zip -r doc.zip doc
+        '''
+        archiveArtifacts artifacts: 'doc.zip',
     }
 }
 
