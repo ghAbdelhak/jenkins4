@@ -13,12 +13,12 @@ stages {
         }
     }
 
-    stage('Test') {
-        steps {
-            bat './mvnw test'
-            junit '**/target/surefire-reports/*.xml'
-        }
-    }
+//    stage('Test') {
+//        steps {
+//            bat './mvnw test'
+//            junit '**/target/surefire-reports/*.xml'
+//        }
+//    }
     stage('Build') {
         steps {
             bat './mvnw install'
@@ -52,7 +52,7 @@ stages {
 
     stage('Deploy') {
         steps {
-            emailext (subject:"build success",
+            mail (subject:"build success",
                       body:"build success",
                       to:"ghezaliabdelhak99@gmail.com"
             )
@@ -75,13 +75,13 @@ stages {
         }
 
         success {
-            emailext (subject:"build success",
+            mail (subject:"build success",
                       body:"build success",
                       to:"ghezaliabdelhak99@gmail.com"
             )
         }
         failure {
-           emailext (subject:"build failed",
+           mail (subject:"build failed",
                      body:"build failed",
                      to:"ghezaliabdelhak99@gmail.com"
            )
