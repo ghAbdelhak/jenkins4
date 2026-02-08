@@ -24,6 +24,11 @@ stages {
             archiveArtifacts artifacts: 'target/*.jar'
         }
     }
+        stage('Documentation') {
+            steps {
+                bat './mvnw javadoc:javadoc'
+            }
+        }
     stage('Deploy') {
         steps {
             echo 'Deploying...'
