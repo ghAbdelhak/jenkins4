@@ -27,6 +27,8 @@ stages {
         stage('Documentation') {
             steps {
                 bat './mvnw javadoc:javadoc'
+                archiveArtifacts artifacts: 'target/site/**'
+
             }
         }
     stage('Deploy') {
