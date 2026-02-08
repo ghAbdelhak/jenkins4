@@ -6,14 +6,14 @@ stages {
             bat './mvnw clean install'
         }
     }
-//    stage('Test') {
-//        steps {
-//            echo 'Testing...'
-//        }
-//    }
-//    stage('Deploy') {
-//        steps {
-//            echo 'Deploying...'
-//        }
-//    }
+    stage('Test') {
+        steps {
+            echo 'Testing...'
+        }
+    }
+    stage('Deploy') {
+        steps {
+            echo 'Deploying...'
+        }
+    }
 }}
