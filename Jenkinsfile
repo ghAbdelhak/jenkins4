@@ -39,9 +39,7 @@ stages {
 
                 archiveArtifacts artifacts: 'doc.zip', fingerprint: true
             }
-
         }
-
     }
 
     stage('Deploy') {
@@ -53,15 +51,15 @@ stages {
 
 }
     post {
-         always {
-                publishHTML ([
-                allowMissing: false,
-                 alwaysLinkToLastBuild: true,
-                 keepAll: true,
-                 reportDir: 'target/site/apidocs',
-                 reportFiles: 'index.html',
-                 reportName: 'Documentation'
-                 ])
+        always {
+            publishHTML ([
+            allowMissing: false,
+             alwaysLinkToLastBuild: true,
+             keepAll: true,
+             reportDir: 'target/site/apidocs',
+             reportFiles: 'index.html',
+             reportName: 'Documentation'
+             ])
         }
         success {
             echo '✅ Pipeline completed successfully!'
