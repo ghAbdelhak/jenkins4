@@ -54,13 +54,14 @@ stages {
 }
     post {
          always {
-                publishHTML (target : [allowMissing: false,
+                publishHTML ([
+                allowMissing: false,
                  alwaysLinkToLastBuild: true,
                  keepAll: true,
-                 reportDir: 'reports',
-                 reportFiles: 'myreport.html',
-                 reportName: 'My Reports',
-                 reportTitles: 'The Report'])
+                 reportDir: 'target/site/apidocs',
+                 reportFiles: 'index.html',
+                 reportName: 'Documentation'
+                 ])
         }
         success {
             echo '✅ Pipeline completed successfully!'
