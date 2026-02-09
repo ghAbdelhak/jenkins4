@@ -63,24 +63,4 @@ stages {
 
 
 }
-    post {
-        always {
-            publishHTML ([
-            allowMissing: false,
-             alwaysLinkToLastBuild: true,
-             keepAll: true,
-             reportDir: 'target/site/apidocs',
-             reportFiles: 'index.html',
-             reportName: 'Documentation'
-             ])
-
-        }
-
-        success {
-            echo 'success'
-        }
-        failure {
-            echo 'failed'
-        }
-    }
 }
