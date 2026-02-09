@@ -51,6 +51,9 @@ stages {
 
 
     stage('Deploy') {
+        when {
+        branch 'second'
+        }
         steps {
             bat 'docker-compose up --build -d'
         }
