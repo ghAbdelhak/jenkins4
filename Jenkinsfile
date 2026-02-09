@@ -52,12 +52,16 @@ stages {
 
     stage('Deploy') {
         steps {
-            mail (subject:"build success",
-                      body:"build success",
-                      to:"ghezaliabdelhak99@gmail.com"
-            )
+            bat '''
+            docker stop livapp || echo container not running
+            docker rm livapp || echo container not found
+
+            docker build -t livapp:1.0 .
+            docker run -d --name livapp -p 8082:8082 livapp:1.0
+            '''
         }
     }
+
 
 
 }
