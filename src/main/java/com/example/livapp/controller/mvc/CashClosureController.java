@@ -22,6 +22,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/* add some comments to explain the code */
+
 @Controller
 @RequestMapping("/cash_closure")
 public class CashClosureController {
