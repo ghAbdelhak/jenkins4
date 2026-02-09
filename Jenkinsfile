@@ -13,9 +13,8 @@ stages {
         }
     }
 
-    parallel {
-    stage('parallel') {
-
+    stage('Parallel') {
+        parallel {
             stage('Test') {
                 steps {
                     bat './mvnw test'
