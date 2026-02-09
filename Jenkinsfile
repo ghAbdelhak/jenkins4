@@ -52,9 +52,7 @@ stages {
 
     stage('Deploy') {
         steps {
-            bat '
-            docker-compose up --build
-            '
+            bat 'docker-compose up --build -d'
         }
     }
 
